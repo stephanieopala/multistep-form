@@ -3,7 +3,8 @@ import {
   Grid
 } from '@mui/material';
 
-function PersonalInfo() {
+const PersonalInfo = (props) => {
+  const { formik } = props;
   return (
     <Grid
       container
@@ -19,10 +20,10 @@ function PersonalInfo() {
           variant="outlined"
           size='small'
           fullWidth
-          value={formik.values.email}
+          value={formik.values.firstName}
           onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
+          error={formik.touched.firstName && Boolean(formik.errors.firstName)}
+          helperText={formik.touched.firstName && formik.errors.firstName}
         />
       </Grid>
       <Grid
@@ -35,10 +36,10 @@ function PersonalInfo() {
           variant="outlined"
           size="small"
           fullWidth
-          value={formik.values.email}
+          value={formik.values.lastName}
           onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
+          error={formik.touched.lastName && Boolean(formik.errors.lastNamel)}
+          helperText={formik.touched.lastName && formik.errors.lastName}
         />
       </Grid>
       <Grid
@@ -52,10 +53,10 @@ function PersonalInfo() {
           type="phone"
           fullWidth
           size="small"
-          value={formik.values.email}
+          value={formik.values.phone}
           onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
+          error={formik.touched.phone && Boolean(formik.errors.phone)}
+          helperText={formik.touched.phone && formik.errors.phone}
         />
       </Grid>
       <Grid
@@ -68,10 +69,10 @@ function PersonalInfo() {
           variant="outlined"
           size="small"
           fullWidth
-          value={formik.values.email}
+          value={formik.values.residence}
           onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
+          error={formik.touched.residence && Boolean(formik.errors.residence)}
+          helperText={formik.touched.residence && formik.errors.residence}
         />
       </Grid>
     </Grid>

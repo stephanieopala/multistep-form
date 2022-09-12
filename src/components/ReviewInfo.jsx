@@ -1,4 +1,5 @@
-function ReviewInfo() {
+const ReviewInfo = (props) => {
+  const { formik } = props;
   return (
     <div>ReviewInfo</div>
   )

@@ -1,9 +1,11 @@
 import {
   Grid,
-  TextField
+  TextField,
+  FormHelperText
 } from "@mui/material";
 
-const AccountDetails = () => {
+const AccountDetails = (props) => {
+  const { formik } = props;
   return (
     <Grid
       container
@@ -14,12 +16,15 @@ const AccountDetails = () => {
         xs={12}
       >
         <TextField
-          id="email"
+          name="email"
           label="Email"
           variant="outlined"
           type="email"
           fullWidth
           size="small"
+          error={Boolean(formik.touched.email && formik.errors.email)}
+          onChange={formik.handleChange}
+          value={formik.values.email}
         />
       </Grid>
       <Grid
@@ -27,12 +32,15 @@ const AccountDetails = () => {
         xs={12}
       >
         <TextField
-          id="password"
+          name="password"
           label="Password"
           variant="outlined"
           size='small'
           type="password"
           fullWidth
+          error={Boolean(formik.touched.password && formik.errors.password)}
+          onChange={formik.handleChange}
+          value={formik.values.password}
         />
       </Grid>
       <Grid
@@ -40,14 +48,27 @@ const AccountDetails = () => {
         xs={12}
       >
         <TextField
-          id="confirm-password"
+          name="confirmPassword"
           label="Confirm Password"
           variant="outlined"
           size="small"
           type="password"
           fullWidth
+          error={Boolean(formik.touched.confirmPassword && formik.errors.confirmPassword)}
+          onChange={formik.handleChange}
+          value={formik.values.confirmPassword}
         />
       </Grid>
+      {formik.errors.submit && (
+        <Grid
+          item
+          xs={12}
+        >
+          <FormHelperText error>
+            {formik.errors.submit}
+          </FormHelperText>
+        </Grid>
+      )}
     </Grid>
   )
 }
